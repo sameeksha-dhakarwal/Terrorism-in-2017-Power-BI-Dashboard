@@ -1,10 +1,10 @@
-Terrorism in 2017 – Power BI Dashboard
+### Terrorism in 2017 – Power BI Dashboard
 
 An interactive Power BI dashboard that analyzes global terrorism incidents in 2017, providing insights into attack types, affected regions, casualty statistics, and trends across different countries.
 
 This project helps visualize terrorism data in an intuitive way using Power BI's data modeling and visualization capabilities.
-
-Project Overview
+---------
+#### Project Overview
 
 The Terrorism in 2017 Dashboard explores global terrorism data to uncover patterns and insights. The dashboard allows users to analyze:
 
