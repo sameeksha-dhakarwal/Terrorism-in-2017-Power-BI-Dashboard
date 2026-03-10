@@ -1,145 +1,292 @@
-### Terrorism in 2017 – Power BI Dashboard
+# Global Terrorism Analysis Dashboard (Power BI)
 
-An interactive Power BI dashboard that analyzes global terrorism incidents in 2017, providing insights into attack types, affected regions, casualty statistics, and trends across different countries.
+## Overview
 
-This project helps visualize terrorism data in an intuitive way using Power BI's data modeling and visualization capabilities.
----------
-#### Project Overview
+This project presents an **interactive Power BI dashboard** analyzing global terrorism incidents using the **Global Terrorism Database (GTD)**.
+The dashboard visualizes trends in terrorism incidents, fatalities, injuries, attack types, and geographical distribution from **1970–2017**.
 
-The Terrorism in 2017 Dashboard explores global terrorism data to uncover patterns and insights. The dashboard allows users to analyze:
+The report is designed as a **scrollable infographic-style dashboard** that allows users to explore terrorism trends over time and understand patterns across countries and attack types.
 
-Total attacks worldwide
+---
 
-Casualties (killed and wounded)
+# Dataset
 
-Most affected countries
+**Dataset Name:** Global Terrorism Database (GTD)
 
-Attack types and target types
+**Source:** National Consortium for the Study of Terrorism and Responses to Terrorism (START)
 
-Regional distribution of incidents
+**Dataset Link:**
+https://www.kaggle.com/datasets/START-UMD/gtd
 
-The goal is to transform raw data into meaningful visual insights for data analysis and decision-making.
+**File Used:**
 
-Dashboard Features
+```
+globalterrorismdb_0718dist.csv
+```
 
-Global Overview
+### Key Columns Used
 
-Total number of terrorist incidents in 2017
+| Column          | Description                   |
+| --------------- | ----------------------------- |
+| iyear           | Year of the incident          |
+| imonth          | Month of the incident         |
+| iday            | Day of the incident           |
+| country_txt     | Country where attack occurred |
+| city            | City of incident              |
+| latitude        | Latitude coordinate           |
+| longitude       | Longitude coordinate          |
+| attacktype1_txt | Type of attack                |
+| nkill           | Number of fatalities          |
+| nwound          | Number of injured             |
 
-Total casualties (killed + wounded)
+---
 
-Geographical Analysis
+# Project Objective
 
-Country-wise distribution of attacks
+The objective of this dashboard is to:
 
-Regional terrorism activity
+• Analyze global terrorism trends over time
+• Identify countries with the highest number of incidents
+• Understand the distribution of different attack types
+• Visualize geographic patterns of terrorism
+• Explore yearly and monthly trends in incidents and fatalities
 
-Attack Analysis
+---
 
-Most common attack types
+# Dashboard Features
 
-Target types affected
+The dashboard includes several interactive visual components.
 
-Casualty Insights
+---
 
-Fatalities vs injuries
+# 1. Terrorism Overview Section
 
-Impact analysis by region
+Provides a high-level introduction to global terrorism trends.
 
-Interactive Filters
+Features:
 
-Country selection
+• Total number of incidents (1970–2017)
+• Introductory description of terrorism trends
+• Large KPI visual highlighting total incidents
 
-Region filtering
+---
 
-Attack type exploration
+# 2. Incident Trend Analysis
 
-Tools & Technologies
+Visualizes how terrorism incidents evolved over time.
 
-Power BI
+Visual Used:
+• Line Chart
 
-Power Query
+Fields Used:
 
-Data Modeling
+| Axis   | Field              |
+| ------ | ------------------ |
+| X-axis | iyear              |
+| Y-axis | Count of incidents |
 
-Data Visualization
+Insights:
+• Rapid increase in incidents after 2010
+• Clear long-term trend in global terrorism activity
 
-Dataset
+---
 
-The dataset used in this project is derived from the Global Terrorism Database (GTD).
+# 3. Geographic Distribution (Map)
 
-It includes information such as:
+Displays where terrorism incidents occur around the world.
 
-Date of incident
+Visual Used:
+• Map Visualization
 
-Country and region
+Fields Used:
 
-Attack type
+| Field       | Data            |
+| ----------- | --------------- |
+| Latitude    | latitude        |
+| Longitude   | longitude       |
+| Bubble Size | Total Incidents |
 
-Target type
+Features:
+• Global spatial analysis of terrorism events
+• Interactive geographic filtering
 
-Number of people killed
+---
 
-Number of people wounded
+# 4. Fatalities Analysis
 
-Dashboard Preview
+Shows yearly fatalities caused by terrorism.
 
-(Add screenshots of your dashboard here)
+Visual Used:
+• Line Chart with data markers
 
-Example:
+Fields Used:
 
-/screenshots/dashboard-overview.png
-/screenshots/country-analysis.png
-/screenshots/attack-types.png
-Insights From the Dashboard
+| Axis   | Field        |
+| ------ | ------------ |
+| X-axis | iyear        |
+| Y-axis | Sum of nkill |
 
-Some key observations from the analysis:
+Features:
+• Trend of fatalities over decades
+• Peak periods of high casualties
 
-Certain regions experienced significantly higher numbers of attacks.
+---
 
-A few attack types dominate the majority of incidents.
+# 5. Incident Types Breakdown
 
-Casualties are concentrated in specific geographic areas.
+Displays the distribution of different attack types.
 
-Some countries appear consistently among the most affected.
+Visual Used:
+• Horizontal Bar Chart
 
-These insights highlight global terrorism trends for the year 2017.
+Fields Used:
 
-How to Use
+| Axis   | Field              |
+| ------ | ------------------ |
+| Y-axis | attacktype1_txt    |
+| X-axis | Count of incidents |
 
-Download the repository.
+Examples of attack types:
 
-Open the .pbix file in Power BI Desktop.
+• Bombing / Explosion
+• Armed Assault
+• Assassination
+• Hostage Taking
+• Infrastructure Attack
 
-Interact with filters and visuals to explore the data.
+This visual helps identify **most common terrorist tactics**.
 
-Repository Structure
-Terrorism-in-2017-Power-BI-Dashboard
-│
-├── Terrorism_2017_Dashboard.pbix
-├── dataset
-│   └── terrorism_2017.csv
-├── screenshots
-│   └── dashboard-preview.png
-└── README.md
-Learning Outcomes
+---
 
-This project demonstrates:
+# 6. Top Countries by Terrorism Incidents
 
-Data cleaning using Power Query
+Displays countries with the highest number of incidents.
 
-Data modeling in Power BI
+Visual Used:
+• Horizontal Bar Chart
 
-Creating interactive dashboards
+Fields Used:
 
-Visual storytelling with data
+| Axis   | Field              |
+| ------ | ------------------ |
+| Y-axis | country_txt        |
+| X-axis | Count of incidents |
 
-Future Improvements
+Insights:
+• Countries like Iraq, Pakistan, Afghanistan, and India show high incident counts.
 
-Add multi-year comparison
+---
 
-Build predictive models
+# 7. 2017 Timeline Analysis
 
-Add more drill-through pages
+An interactive section showing **monthly attack patterns in 2017**.
 
-Deploy dashboard to Power BI Service
+Visuals Used:
+
+• Country Slicer (scrollable country selection)
+• Monthly Donut Charts
+• KPI Cards for incidents, fatalities, and injured
+
+Fields Used:
+
+| Field           | Purpose               |
+| --------------- | --------------------- |
+| imonth          | Monthly analysis      |
+| attacktype1_txt | Attack type breakdown |
+| nkill           | Fatalities            |
+| nwound          | Injuries              |
+
+Features:
+
+• Select a country using the slicer
+• Dashboard dynamically updates monthly attack patterns
+• Displays type of attacks for each month
+
+---
+
+# 8. Country-Level Armed Assault Analysis
+
+Displays statistics specifically for **Armed Assault incidents in India**.
+
+Metrics Calculated:
+
+• Total incidents
+• Total fatalities
+• Total injured
+
+Measures used:
+
+```
+Armed Assault Incidents India
+Armed Assault Fatalities India
+Armed Assault Injured India
+```
+
+---
+
+# Data Modeling
+
+Power BI measures were created using **DAX** for custom calculations.
+
+Examples:
+
+```
+Armed Assault Incidents India =
+CALCULATE(
+COUNTROWS(globalterrorismdb_0718dist),
+globalterrorismdb_0718dist[country_txt] = "India",
+globalterrorismdb_0718dist[attacktype1_txt] = "Armed Assault"
+)
+```
+
+---
+
+# Dashboard Design
+
+The dashboard was designed as a **scrollable storytelling report**.
+
+Design features include:
+
+• Infographic-style layout
+• Section-based analysis
+• Minimalistic background theme
+• Interactive slicers and filters
+• KPI indicators
+• Data-driven storytelling
+
+---
+
+# Tools Used
+
+| Tool             | Purpose                   |
+| ---------------- | ------------------------- |
+| Power BI Desktop | Data visualization        |
+| Power Query      | Data preparation          |
+| DAX              | Measures and calculations |
+| Power BI Service | Dashboard publishing      |
+
+---
+
+# Key Insights
+
+From the analysis:
+
+• Terrorism incidents increased significantly after 2010
+• Bombing/Explosion is the most common attack type
+• Several countries experience higher concentration of attacks
+• Fatality rates fluctuate significantly across years
+• Attack types vary across regions and months
+
+---
+
+# How to Run the Project
+
+1. Install **Power BI Desktop**
+2. Download the dataset
+3. Open the `.pbix` file
+4. Refresh the data source if necessary
+5. Explore the interactive dashboard
+
+---
+
+---
